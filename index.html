@@ -6,13 +6,18 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'><link rel="stylesheet" href="./style.css">
 
 </head>
+<body>
+<!-- partial:index.partial.html -->
+
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 var text = ['Writer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Product Manager', 'Online Marketer', 'Content Specialist']
   var pos = {x: 0, y:0};
   $(document).mousemove(function(event) {
     var randomItem = text[Math.floor(Math.random() * text.length)];
     var div = $("#message");
-    if (event.pageX > pos.x+30 || event.pageY > pos.y+30 || event.pageY < pos.y -30 || event.pageX < pos.x-30) {
+    if (event.pageX > pos.x+60 || event.pageY > pos.y+60 || event.pageY < pos.y -60 || event.pageX < pos.x-30) {
       pos.x = event.pageX;
       pos.y = event.pageY;
       div.stop().animate({
@@ -25,10 +30,8 @@ var text = ['Writer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Produ
       });
     }
   });
-  </script>
+</script>
 
-<body>
-<!-- partial:index.partial.html -->
 <link
   rel="stylesheet"
   href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -64,8 +67,8 @@ var text = ['Writer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Produ
 <!-- START WELCOME SECTION -->
 
 <section id="welcome-section" class="welcome-section">
-  <h1>Sriram Sharma</h1>
-  <p><strong>Pro:</strong> Journalist. <strong>Amateur:</strong> Front-end web developer. <strong>Newb:</strong> Data science, data journalism.<br/><strong>Wannabe:</strong> 🦄</p>
+  <h1>Sriram Sharma</h1> <div id="message">Writer & Coder</div>
+  <h2><center><strong>Pro:</strong> Journalist. <strong>Amateur:</strong> Front-end web developer. <strong>Newb:</strong> Data science, data journalism. </center><br/><strong>Wannabe:</strong> 🦄</h2>
 </section>
 
 <!-- END WELCOME SECTION -->
@@ -237,8 +240,7 @@ var text = ['Writer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Produ
 </footer>
 
 <!-- END FOOTER SECTION -->
-<!-- partial -->
-  <!-- <script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script><script  src="./script.js"></script> -->
+
 
 </body>
 </html>
