@@ -85,11 +85,12 @@ h2 {
 
 h1 {
   font-size: 6rem;
+  padding: 20px 250px 50px 10px;
 }
 
 h2 {
   font-size: 4.2rem;
-  padding: 10px 50px 50px 10px;
+  padding: 10px 250px 50px 10px;
 }
 
 ul {
@@ -157,7 +158,7 @@ img {
   width: 100%;
   height: 100vh;
   background-color: #000;
-  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+  background-image: url("sriram-portfolio-bg.jpg");
 }
 
 .welcome-section > p {
