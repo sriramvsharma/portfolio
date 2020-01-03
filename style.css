@@ -162,6 +162,7 @@ img {
   background-image: url("sriram-portfolio-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat; 
+  background-position: right;
 }
 
 .welcome-section2 {
