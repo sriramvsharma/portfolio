@@ -30,6 +30,16 @@ var text = ['Writer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Produ
       });
     }
   });
+
+$(document).ready(function () {
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 150) { 
+        //change yes to no
+        $(this).text(randomItem);
+    }
+});
+});
+
 </script>
 
 <link
