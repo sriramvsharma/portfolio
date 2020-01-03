@@ -159,6 +159,8 @@ img {
   height: 100vh;
   background-color: #000;
   background-image: url("sriram-portfolio-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; 
 }
 
 .welcome-section > p {
@@ -167,6 +169,8 @@ img {
   font-style: italic;
   color: var(--main-red);
 }
+
+
 
 /* Projects section */
 
