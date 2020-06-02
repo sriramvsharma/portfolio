@@ -13,30 +13,30 @@
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-var text = ['Front End Web Developer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Product Manager', 'Online Marketer', 'Content Specialist', 'Writer']
-  var pos = {x: 0, y:0};
-  $(document).mousemove(function(event) {
-    var randomItem = text[Math.floor(Math.random() * text.length)];
-    var div = $("#message");
-    if (event.pageX > pos.x+60 || event.pageY > pos.y+60 || event.pageY < pos.y -60 || event.pageX < pos.x-30) {
-      pos.x = event.pageX;
-      pos.y = event.pageY;
-      div.stop().animate({
-        "opacity": "1"
-      }, 1, function() {
-        $(this).text(randomItem);
-        $(this).stop().animate({
-          "opacity": "1"
-        }, 1);
-      });
-    }
-  });
+// var text = ['Front End Web Development', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Product Manager', 'Online Marketer', 'Content Specialist', 'Writer']
+//   var pos = {x: 0, y:0};
+//   $(document).mousemove(function(event) {
+//     var randomItem = text[Math.floor(Math.random() * text.length)];
+//     var div = $("#message");
+//     if (event.pageX > pos.x+60 || event.pageY > pos.y+60 || event.pageY < pos.y -60 || event.pageX < pos.x-30) {
+//       pos.x = event.pageX;
+//       pos.y = event.pageY;
+//       div.stop().animate({
+//         "opacity": "1"
+//       }, 1, function() {
+//         $(this).text(randomItem);
+//         $(this).stop().animate({
+//           "opacity": "1"
+//         }, 1);
+//       });
+//     }
+//   });
 
-  setInterval(function(){
-    var randomItem = text[Math.floor(Math.random()*text.length)];
-    var div = $("#message");
-    div.text(randomItem);
-  }, 2000)
+//   setInterval(function(){
+//     var randomItem = text[Math.floor(Math.random()*text.length)];
+//     var div = $("#message");
+//     div.text(randomItem);
+//   }, 2000)
 
 
 
@@ -95,8 +95,8 @@ var text = ['Front End Web Developer', 'Data Journalist', 'Data Analyst', 'Tech 
 <!-- START WELCOME SECTION -->
 
 <section id="welcome-section" class="welcome-section">
-  <h1>Sriram Sharma</h1> <h1 id="message">Front-End Web Developer</h1>
-  <h2><center><strong>Pro:</strong> Journalist. <br/><strong>Padawan:</strong> Front-end web developer.<br/> <strong>Newb:</strong> Data science, data journalism. <br/> </center><br/><strong>Wannabe:</strong> 🦄</h2>
+  <h1>Sriram Sharma</h1> <h1 id="message"><a href="#contact">Web Developer, Writer</a></h1>
+  <h2><center><strong>Experienced in:</strong> Tech Writing, Web Publishing <br/><strong>Content Management & Strategy</strong> Data Analysis & Visualisation<br/> <strong>Certifications in :</strong> JavaScript Libraries, Cloud Computing, Machine Learning <br/> </center></h2>
 </section>
 
 
@@ -109,6 +109,57 @@ var text = ['Front End Web Developer', 'Data Journalist', 'Data Analyst', 'Tech 
 
   <div class="projects-grid">
     <a
+      href="https://codepen.io/slashgod/full/QWjoBJe"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://imgur.com/5qpyEjU.jpg"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Tabla Beat Machine  (Built w/ React)
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+
+    <a
+    href="https://codepen.io/slashgod/full/oNjMmoP"
+    target="_blank"
+    class="project project-tile"
+  >
+    <img
+      class="project-image"
+      src="https://imgur.com/ebRy0nh.jpg"
+      alt="project"
+    />
+    <p class="project-title">
+      <span class="code">&lt;</span>
+      Markdown Previewer (Built w/ React)
+      <span class="code">&#47;&gt;</span>
+    </p>
+  </a>
+
+  <a
+  href="https://codepen.io/slashgod/full/GRpBJKz"
+  target="_blank"
+  class="project project-tile"
+>
+  <img
+    class="project-image"
+    src="https://imgur.com/T1Mt1ml.jpg"
+    alt="project"
+  />
+  <p class="project-title">
+    <span class="code">&lt;</span>
+    Developer Quote Machine (Built w/JQuery)
+    <span class="code">&#47;&gt;</span>
+  </p>
+</a>
+
+    <a
       href="https://www.thenextmeme.com"
       target="_blank"
       class="project project-tile"
@@ -120,7 +171,7 @@ var text = ['Front End Web Developer', 'Data Journalist', 'Data Analyst', 'Tech 
       />
       <p class="project-title">
         <span class="code">&lt;</span>
-        Wordpress: The Next Meme
+        The Next Meme (Built w/ Wordpress)
         <span class="code">&#47;&gt;</span>
       </p>
     </a>
