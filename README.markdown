@@ -1,3 +1,3 @@
 # Personal Portfolio
-Code for [my personal page](https://sriramvsharma.github.io/portfolio/). 
+Code for [my portfolio page](https://sriramvsharma.github.io/portfolio/). 
  
