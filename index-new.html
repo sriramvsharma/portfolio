@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Sriram Sharma: Personal Portfolio</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script>
+var textWrapper = document.querySelector('.ml11 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml11 .line',
+    scaleY: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700
+  })
+  .add({
+    targets: '.ml11 .line',
+    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+    easing: "easeOutExpo",
+    duration: 700,
+    delay: 100
+  }).add({
+    targets: '.ml11 .letter',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=775',
+    delay: (el, i) => 34 * (i+1)
+  }).add({
+    targets: '.ml11',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+
+var text = ['Front End Web Developer', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Product Manager', 'Online Marketer', 'Content Specialist', 'Writer']
+  var pos = {x: 0, y:0};
+  $(document).mousemove(function(event) {
+    var randomItem = text[Math.floor(Math.random() * text.length)];
+    var div = $("#message");
+    if (event.pageX > pos.x+60 || event.pageY > pos.y+60 || event.pageY < pos.y -60 || event.pageX < pos.x-30) {
+      pos.x = event.pageX;
+      pos.y = event.pageY;
+      div.stop().animate({
+        "opacity": "1"
+      }, 1, function() {
+        $(this).text(randomItem);
+        $(this).stop().animate({
+          "opacity": "1"
+        }, 1);
+      });
+    }
+  });
+
+  setInterval(function(){
+    var randomItem = text[Math.floor(Math.random()*text.length)];
+    var div = $("#message");
+    div.text(randomItem);
+  }, 2000)
+
+
+
+// $(document).ready(function () {
+//   var randomItem = text[Math.floor(Math.random() * text.length)];
+//   var div = $("#message");
+// $(window).scroll(function () {
+//     if ($(this).scrollTop() > 10) { 
+//         $(this).text(randomItem);
+//         div.stop().animate({
+//         "opacity": "1"
+//       }, 1, function() {
+//         $(this).text(randomItem);
+//         $(this).stop().animate({
+//           "opacity": "1"
+//         }, 1);
+//       });
+//     }
+// });
+// });
+
+</script>
+
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+  crossorigin="anonymous"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
+  rel="stylesheet"
+/>
+<!-- START NAV -->
+
+<nav id="navbar" class="nav">
+  <ul class="nav-list">
+    <li>
+      <a href="#welcome-section">About</a>
+    </li>
+    <li>
+      <a href="#projects">Work</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- END NAV -->
+
+<!-- START WELCOME SECTION -->
+
+
+<section id="welcome-section" class="welcome-section">
+  <h1>Sriram Sharma</h1> <h1 id="message">Front-End Web Developer</h1>
+  <h2 class="ml11">
+    <span class="text-wrapper">
+      <span class="line line1"></span>
+      <span class="letters"><center><strong>Pro:</strong> Journalist. <br/>
+        <strong>Padawan:</strong> Front-end web developer.<br/> 
+        <strong>Newb:</strong> Data science, data journalism. <br/>
+        </center><br/><strong>Wannabe:</strong> 🦄</span>
+    </span>
+  </h2>  
+</section>
+
+
+<!-- END WELCOME SECTION -->
+
+<!-- START PROJECTS SECTION -->
+
+<section id="projects" class="projects-section">
+  <h2 class="projects-section-header">These are some of my projects</h2>
+
+  <div class="projects-grid">
+    <a
+      href="https://pjstodolistv9.glitch.me/"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://i.imgur.com/bT1A6I3.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Todo List App
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://sriramvsharma.github.io/fotp-data-story/docs/story/index.html"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://i.imgur.com/NaYSOTz.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Interactive: Global Press Freedom
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://sriramvsharma.github.io/mapbox-vancouver-landmarks/src/vanilla-js/index.html"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://i.imgur.com/raorkUW.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Interactive: Heritage Buildings of Vancouver
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://codepen.io/slashgod/pen/BaywLGE"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://i.imgur.com/92vCMd5.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        FCC Project: Product Landing Page
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://public.flourish.studio/visualisation/1135115/"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://i.imgur.com/aUxoFUs.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Dataviz: Star Wars Saga 
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+      href="https://public.flourish.studio/visualisation/958160/"
+      target="_blank"
+      class="project project-tile"
+    >
+      <img
+        class="project-image"
+        src="https://i.imgur.com/l2Y6Ytb.png"
+        alt="project"
+      />
+      <p class="project-title">
+        <span class="code">&lt;</span>
+        Dataviz: My Skill Tree, Visualized
+        <span class="code">&#47;&gt;</span>
+      </p>
+    </a>
+    <a
+    href="https://datawrapper.dwcdn.net/RC9c6/2/"
+    target="_blank"
+    class="project project-tile"
+  >
+    <img
+      class="project-image"
+      src="https://sriramvsharma.files.wordpress.com/2019/02/techmeme-news-cycle.png"
+      alt="project"
+    />
+    <p class="project-title">
+      <span class="code">&lt;</span>
+      Tech News Cycle, Graphed
+      <span class="code">&#47;&gt;</span>
+    </p>
+  </a>
+  <a
+  href="https://factordaily.com/interactive-100-indian-ai-researchers-ranked-h-index-citations/"
+  target="_blank"
+  class="project project-tile"
+>
+  <img
+    class="project-image"
+    src="https://sriramvsharma.files.wordpress.com/2019/01/ai-dataviz.gif"
+    alt="project"
+  />
+  <p class="project-title">
+    <span class="code">&lt;</span>
+    Dataviz: India’s Top AI Researchers
+    <span class="code">&#47;&gt;</span>
+  </p>
+</a>
+<a
+href="https://factordaily.com/ai-startups-india-market-map/"
+target="_blank"
+class="project project-tile"
+>
+<img
+  class="project-image"
+  src="https://sriramvsharma.files.wordpress.com/2019/01/dataviz-ai-startups.gif"
+  alt="project"
+/>
+<p class="project-title">
+  <span class="code">&lt;</span>
+  Dataviz: Indian AI Startups
+  <span class="code">&#47;&gt;</span>
+</p>
+</a>
+  </div>
+
+  <a
+    href="https://github.com/sriramvsharma/"
+    class="btn btn-show-all"
+    target="_blank"
+    >Show all<i class="fas fa-chevron-right"></i
+  ></a>
+</section>
+
+<!-- END PROJECTS SECTION -->
+<section>
+  <h1>My Skill Tree</h1>
+<div class="flourish-embed flourish-network" data-src="visualisation/958160"></div><script src="https://public.flourish.studio/resources/embed.js"></script>
+</section>
+
+<!-- START CONTACT SECTION -->
+
+<section id="contact" class="contact-section">
+
+  <div class="contact-section-header">
+    <h2>Let's work together...</h2>
+    <p>How do you take your coffee?</p>
+  </div>
+  <div class="contact-links">
+    <a
+      href="https://www.linkedin.com/in/sriram-sharma/"
+      target="_blank"
+      class="btn contact-details"
+      ><i class="fab fa-linkedin"></i> LinkedIn</a
+    >
+    <a
+      id="profile-link"
+      href="https://github.com/sriramvsharma"
+      target="_blank"
+      class="btn contact-details"
+      ><i class="fab fa-github"></i> GitHub</a
+    >
+    <a
+      href="https://twitter.com/SriramVSharma"
+      target="_blank"
+      class="btn contact-details"
+      ><i class="fab fa-twitter"></i> Twitter</a
+    >
+    <a href="mailto:sriram.sharma.v@gmail.com" class="btn contact-details"
+      ><i class="fas fa-at"></i> Send a mail</a
+    >
+    <a href="tel:669-273-9262" class="btn contact-details"
+      ><i class="fas fa-mobile-alt"></i> Call me</a
+    >
+  </div>
+</section>
+
+<!-- END CONTACT SECTION -->
+
+<!-- START FOOTER SECTION -->
+
+<footer>
+  <p>
+   All the projects and contact details given were made while doing MOOCs at FreecodeCamp, Watch and Code, and Journalismcourses.org.
+  </p>
+  <p>
+    &copy; Created for
+    <a href="https://www.freecodecamp.com/" target="_blank"
+      >freeCodeCamp <i class="fab fa-free-code-camp"></i
+    ></a>
+  </p>
+</footer>
+
+<!-- END FOOTER SECTION -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</body>
+</html>
