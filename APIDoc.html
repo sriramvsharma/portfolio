@@ -1,0 +1,345 @@
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+
+<nav id="navbar">
+  <header>IP Address to Location</header>
+  <header2>Reference Guide</header2>
+  <ul>
+    <li>
+
+      <a class="nav-link" href="#Introduction">Introduction</a></li>
+    <li>
+      <a class="nav-link" href="#end_point_details"
+        >End Point Details</a
+      >
+    </li>
+    <li>
+      <a class="nav-link" href="#request_details">Request Details</a>
+    </li>
+    <li><a class="nav-link" href="#response_details">Response Details</a></li>
+    <li><a class="nav-link" href="#sample_code">Sample Code</a></li>
+      <li><a class="nav-link" href="#sample_usecase">Sample Use Cases</a></li>
+    <li>
+      <a class="nav-link" href="#response">Response HTTP Status Codes</a>
+    </li>
+    <li><a class="nav-link" href="#error">Error JSON Response Format</a></li>
+        <li>
+      <a class="nav-link" href="#history">Update History</a>
+    </li>
+    <li>
+      <a class="nav-link" href="#help">Get Help</a>
+    </li>
+    
+  </ul>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <h1> 
+    
+    
+    
+  
+      </h1>
+    <header>Introduction</header>
+    <article>
+      <p>
+        The IP Address to Location API is organized using <a href="https://www.restapitutorial.com/">REST architectural patterns</a>. You can estimate the geolocation, country, and city from a given IP address (IPv4 only). The API is free to use. It requires no authentication or registration.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="end_point_details">
+    <header>End Point Details</header>
+    <article>
+   <table class="t1" style="float: left;" cellspacing="0" cellpadding="10">
+<tbody>
+<tr>
+<td class="td1" style="background-color: #f0f0f0; width: 10%"  valign="top">
+<p class="p1"><span class="s1"><strong>Description</strong></span></p>
+</td>
+<td class="td2" style="width: 60%;" valign="top">
+<p class="p2"><span class="s1">Returns a location estimate (country, state, city, post code, latitude and longitude coordinates) when given a valid IP address.</span></p>
+</td>
+</tr>
+<tr>
+<td class="td1" style="background-color: #f0f0f0; width: 10%" valign="top">
+<p class="p1"><span class="s1"><strong>API Method Name</strong></span></p>
+</td>
+<td class="td2" style="width: 60%" valign="top">
+<p class="p2"><span class="s1">srvs_getiploc</span></p>
+</td>
+</tr>
+<tr>
+<tr>
+<td class="td3" style="background-color: #f0f0f0; width: 10%" valign="top">
+<p class="p1"><span class="s1"><strong>Base URL</strong></span></p>
+</td>
+<td class="td4" style="width: 60%;" valign="top">
+<p class="p3"><span class="s2"><a href="https://matkarma.in/logv/srvs_getiploc.php?ip="" target="_blank">https://matkarma.in/logv/srvs_getiploc.php?ip=</a></span></p>
+</td>
+</tr>
+<td class="td3" style="background-color: #f0f0f0; width: 10%" valign="top">
+<p class="p1"><span class="s1"><strong>Example API Call</strong></span></p>
+</td>
+<td class="td4" style="width: 60%;" valign="top">
+<p class="p3"><span class="s2"><a href="https://matkarma.in/logv/srvs_getiploc.php?ip=185.177.57.20" target="_blank">https://matkarma.in/logv/srvs_getiploc.php?ip=185.177.57.20</a></span></p>
+</td>
+</tr>
+  
+<tr>
+<td class="td5" style="background-color: #f0f0f0; width: 10%" valign="top">
+<p class="p1"><span class="s1"><strong>Notes</strong></span></p>
+</td>
+<td class="td6" style="width: 60%;" valign="top">
+<ol class="ol1">
+<li class="li4"><span class="s1">This service is in beta. It's hosted on a server with 2 GB of RAM, so expect limited load tolerance. <a href="mailto:sriram@matkarma.in" target="_blank">Send us an email</a> and if you plan to use it beyond hobbyist projects (5000+ calls per hour).</span></li>
+<li class="li4"><span class="s1">No authentication required.</span></li>
+  <li class="li4"><span class="s1">IP address (Only IPv4 supported currently) is a required parameter.</span></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+    </article>
+  </section>
+  <section class="main-section" id="request_details">
+    <header>API Request Details</header>
+    <article>
+      <h3>Request Type</h3>
+  <p><b>GET</b> IP address as query parameter</p>
+       <h3>Request Headers</h3>
+         <table class="t1" style="float: left;width: 100%" cellspacing="0" cellpadding="10">
+<tbody>
+<tr>
+<td class="td1" style="background-color: #f0f0f0; width: 10%"  valign="top">
+<p class="p1"><span class="s1">Content Type</span></p>
+</td>
+<td class="td2" valign="top">
+<p class="p2"><span class="s1">N/A</span></p>
+</td>
+</tr>
+<tr>
+<td class="td1" style="background-color: #f0f0f0; width: 10%" valign="top">
+<p class="p1"><span class="s1">Authorization</span></p>
+</td>
+<td class="td2" valign="top">
+<p class="p2"><span class="s1">N/A</span></p>
+</td>
+</tr>
+<tr>
+<td class="td3" style="background-color: #f0f0f0; width: 10%" valign="top">
+<p class="p1"><span class="s1">UserToken</span></p>
+</td>
+<td class="td4" valign="top">
+<p class="p3"><span class="s2">N/A</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+      <h3>JSON Structure of Request Data</h3>
+<p>Not applicable as no request data is expected.</p>
+ <h3>Sample Requests</h3>
+<p>Not applicable as no request data is expected.</p>
+    </article>
+  </section>
+  <section class="main-section" id="response_details">
+    <header>API Response Details</header>
+    <article>
+      <h3>JSON Structure of Response Data</h3>
+  <pre>
+<code class="JavaScript">
+{
+    "ipAddress": "INPUT IP ADDRESS",
+    "location": {
+        "country": "COUNTRY",
+        "state": "REGION OR STATE",
+        "city": "CITY",
+        "postCode": "POSTAL CODE",
+        "lat": "LATITUDE",
+        "long": "LONGITUDE"
+    }
+}
+</code >
+  </pre>
+  <h3>Sample Reponse</h3>
+  <pre>
+<code class="javascript">
+{
+  "ipAddress": "185.177.57.20",
+  "location": {
+    "country": "Bulgaria",
+    "state": "Sofia (stolitsa)",
+    "city": "Sofia",
+    "postCode": "1000",
+    "lat": "42.69751000",
+    "long": "23.32415000"
+  }
+}
+</code>
+  </pre>
+    </article>
+  </section>
+   <section class="main-section" id="sample_usecase">
+     <header>Sample Use Cases</header>
+     <ol>
+  <li>UI/UX: Customise your website/app front-end based on user location.</li>
+       <li>
+       Security: Flag security threats and fraudulent e-commerce transactions. </li>
+       <li>Analytics: Get insights on where your users are from. </li>
+     </ol>
+     
+  </section>
+  <section class="main-section" id="sample_code">
+  <header>Sample Code</header> <header>(JavaScript) <button class="btn" data-clipboard-action="copy" data-clipboard-target="#jscode">
+    Copy to Clipboard
+</button> </header>
+  <pre><code class="JavaScript">
+var xmlHttp = new XMLHttpRequest();
+var reqURL = “https://matkarma.in/logv/srvs_getiploc.php?ip=185.177.57.20”;
+xmlHttp.onreadystatechange = function() {
+ if (xmlHttp.readyState == XMLHttpRequest.DONE) {
+	 if (xmlHttp.status == 200) {
+		 var jsonStr = xmlHttp.responseText;
+		 try {
+			 var jsonObj = JSON.parse(jsonStr);
+			 successCallbackFn(jsonObj);
+			}
+			catch(exp) {
+				failureCallbackFn("Failed with error :" + exp);
+			}
+		}
+	else {
+		failureCallbackFn("Failed with error code :" + xmlHttp.status);
+	}
+}
+};
+
+xmlHttp.open("GET", reqURL, true);
+xmlHttp.send();
+  </code></pre>
+
+  </section>
+  <section class="main-section" id="response">
+    <header>Response HTTP Status Codes</header>
+    <article>
+      <table class="t1" style="background-color: #f0f0f0; width: 100%;" border=".2" cellspacing=".5" cellpadding="10">
+<tbody>
+<tr>
+<td class="td1" style="width: 10%; color:black" valign="top">
+  <p class="p1"><span class="s1"><strong>Status Code</strong></span></p>
+</td>
+<td class="td2" style="width: 60%; color:black"" valign="top">
+  <p class="p1"><span class="s1"><strong>Response Message</strong></span></p>
+</td>
+</tr><tr>
+<td class="td1" style="width: 10%; color:green" valign="top">
+<p class="p1"><span class="s1">200</span></p>
+</td>
+<td class="td2" style="width: 60%; color:green"" valign="top">
+<p class="p1"><span class="s1">HTTP Status OK. Successfully processed request.</span></p>
+</td>
+</tr>
+<tr>
+<td class="td3" style="width: 10%; color:red" valign="top">
+<p class="p2"><span class="s1">400</span></p>
+<p class="p3">&nbsp;</p>
+</td>
+<td class="td4" style="width: 60%; color:red" valign="top">
+<p class="p2"><span class="s1">Invalid parameters sent (-32602)</span></p>
+<p class="p2"><span class="s1">JSON input parse error<span class="Apple-converted-space">&nbsp; </span>(-32700)</span></p>
+<p class="p2"><span class="s1">All other errors</span></p>
+</td>
+</tr>
+<tr>
+<td class="td5" style="width: 10%; color:red" valign="top">
+<p class="p2"><span class="s1">500</span></p>
+</td>
+<td class="td6" style="width: 60%; color:red" valign="top">
+<p class="p2"><span class="s1">Internal error (-32603)</span></p>
+<p class="p2"><span class="s1">Application error (-32500)</span></p>
+<p class="p2"><span class="s1">System error (-32400)</span></p>
+<p class="p2"><span class="s1">Transport error (-32300)</span></p>
+</td>
+</tr>
+<tr>
+<td class="td7" style="width: 10%; color:red" valign="top">
+<p class="p2"><span class="s1">501</span></p>
+</td>
+<td class="td8" style="width: 60%; color:red" valign="top">
+<p class="p2"><span class="s1">Invalid request (-32600)</span></p>
+<p class="p2"><span class="s1">Method not found or implemented (-32601)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+    </article>
+  </section>
+  <section class="main-section" id="error">
+    <header>Error JSON Response Format</header>
+    <article>
+                                          <pre><code>????? //Yes, that's literally the response.</code></pre>
+    </article>
+  </section>
+  <section class="main-section" id="history">
+    <header>Update History</header>
+    <article>
+     
+<table class="t1" style="background-color: #f0f0f0; width: 100%;" border=".2" cellspacing=".5" cellpadding="10">
+<tbody>
+<tr style="height: 20%">
+<td class="td1" style="" valign="top">
+                                     <p class="p2"><span class="s1"><strong>Version</strong></span></p>
+</td>
+<td class="td2" style="height: 20%" valign="top">
+<p class="p2"><span class="s1"><strong>Description</strong></span></p>
+</td>
+<td class="td3" style="height: 20%" valign="top">
+<p class="p2"><span class="s1"><strong>Updated by</strong></span></p>
+</td>
+<td class="td4" style="height: 20%" valign="top">
+<p class="p2"><span class="s1"><strong>Updated on</strong></span></p>
+</td>
+</tr>
+<tr style="height: 20%">
+<td class="td5" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">RC1</span></p>
+</td>
+<td class="td6" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">Initial revision</span></p>
+</td>
+<td class="td7" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">Shriram Sharma</span></p>
+</td>
+<td class="td8" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">06/16/2020</span></p>
+</td>
+</tr>
+<tr style="height: 20%">
+<td class="td5" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">1.0 (beta)</span></p>
+</td>
+<td class="td6" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">Final release&nbsp;</span></p>
+</td>
+<td class="td7" style="height: 20%" valign="top">
+<p class="p3"><span class="s1">Shriram Sharma</span></p>
+</td>
+<td class="td8" style="height: 20%" valign="top">&nbsp;06/17/2020</td>
+</tr>
+</tbody>
+</table>
+    </article>
+  </section>
+   <section class="main-section" id="help">
+    <header>Get Help</header>
+    <article>
+<p>
+   <a href="mailto:sriram@matkarma.in" target="_blank">Email us</a> your questions, feedback and support requests. We should respond within 24 hours on weekdays. 
+</p>
+    </article>
+  </section>                                                
+</main>
