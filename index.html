@@ -18,6 +18,7 @@
 
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://bennettfeely.com/ztext/js/ztext.min.js"></script>
 <script>
 // var text = ['Front End Web Development', 'Data Journalist', 'Data Analyst', 'Tech Reporter', 'Product Manager', 'Online Marketer', 'Content Specialist', 'Writer']
 //   var pos = {x: 0, y:0};
@@ -68,9 +69,10 @@
 
 <link
   rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-  crossorigin="anonymous"
+  <!-- href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" -->
+  href="https://unpkg.com/fontawesome@5.6.3/index.js"
+  <!-- integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+  crossorigin="anonymous" -->
 />
 <link
   href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
@@ -107,7 +109,7 @@
     </div>
      <div class="card-details"> 
      <div class="content">
-         <h2>Sriram Sharma</h2>
+         <h2><span data-z data-z-event="pointer">Sriram Sharma</span></h2>
          <h3>Front-End Web Developer</h3>
          <h4><strong>Tech Skills</strong>: MERN (MongoDB, Express, React, NodeJS) and JAM (JavaScript, API, Markup) stack, CSS, jQuery, D3, UI design, WordPress Development, Technical Writing & more. </h4> 
          </div>
@@ -117,7 +119,9 @@
 <div class="card">
   <div class="image"></div>
  <div class="card-details2"> 
- <a href="#projects"><h3>Check out my portfolio</h3><h3 class="animate__animated animate__bounce animate__infinite">👇</h3></a>
+ <a href="#projects"><h3>Check out my portfolio</h3><h3>
+ </h3><h4><i class="animate__animated animate__bounce animate__infinite fas fa-chevron-down"></i></h4>
+</a>
 </div> 
 </div>
 
@@ -710,8 +714,8 @@ class="project project-tile"
 <section id="contact" class="contact-section">
 
   <div class="contact-section-header">
-    <h2>Looking for a 🦄 who can code and write?</h2>
-    <h3>Hire me now! </h3>
+    <h2>Looking to collaborate? Get in touch!</h2>
+
   </div>
   <div class="contact-links">
     <a
@@ -748,7 +752,7 @@ class="project project-tile"
 
 <footer>
   <p>
-   This portfolio includes some passion projects, others were made while doing MOOCs at FreecodeCamp, Watch and Code, and Journalismcourses.org.
+   Hey there! If you're reading this, I would like to thank you for sticking around, and making it this far. Let's be friends. I promise not to subscribe you to my newsletter. 
   </p>
   </p>
 </footer>
