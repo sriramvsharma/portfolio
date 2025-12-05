@@ -1,0 +1,764 @@
+[
+    {
+        "id": "TA0043",
+        "slug": "reconnaissance",
+        "title": "Reconnaissance",
+        "translation": "The adversary is trying to gather information they can use to plan future operations.",
+        "heroImage": "A thief observing a target building from a distance illustration",
+        "why": {
+            "goal": [
+                "Identify potential targets, entry points, and vulnerabilities in the target environment.",
+                "Gather information (like employee names, technologies used, or network details) to plan the attack strategy.",
+                "Reduce uncertainty by learning about the target's defenses and operations before launching an attack."
+            ],
+            "severity": "Low"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Open-Source Intelligence (OSINT)",
+                "iconDescription": "Magnifying glass searching through documents icon",
+                "techniques": [
+                    "Search Open Websites/Domains",
+                    "Gather Victim Organization Information",
+                    "Social Media Reconnaissance"
+                ],
+                "mechanism": "Attackers quietly collect publicly available data about the target from the internet. They comb through websites, social media, and public records to build a profile of the organization and identify useful details without directly interacting with the target."
+            },
+            {
+                "clusterName": "Active Scanning & Probing",
+                "iconDescription": "Network scanning radar screen icon",
+                "techniques": [
+                    "Active Scanning (Port Scans)",
+                    "Phishing for Information",
+                    "Gather Victim Network Information"
+                ],
+                "mechanism": "Adversaries take a more direct approach by scanning the target's networks and systems for open ports, services, or weaknesses. They may also engage people at the target (via phone or email) under false pretenses to extract specific information, effectively probing defenses and gathering intel actively."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Multiple port scan or crawling activities detected in web/server logs indicating someone mapping your network.",
+                "Employees report receiving unusual information requests or phishing emails seeking organizational data.",
+                "Threat intelligence or monitoring reveals newly registered domains similar to your company’s name (possible attacker reconnaissance infrastructure)."
+            ],
+            "icon": "Binoculars or search icon indicating reconnaissance detection"
+        },
+        "analogy": {
+            "analogy": "Like a burglar scouting a neighborhood, watching a building to learn its layout and security measures before attempting a break-in."
+        }
+    },
+    {
+        "id": "TA0042",
+        "slug": "resource-development",
+        "title": "Resource Development",
+        "translation": "The adversary is trying to establish resources they can use to support operations.",
+        "heroImage": "A thief preparing tools and gear in a garage illustration",
+        "why": {
+            "goal": [
+                "Obtain or create the tools, malware, and exploits needed for the planned attack.",
+                "Set up infrastructure (servers, domains, email accounts) that will be used to launch or support the attack campaign.",
+                "Acquire valid credentials or compromised accounts to use for gaining future access."
+            ],
+            "severity": "Low"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Acquire Tools & Capabilities",
+                "iconDescription": "Toolbox with malware icons illustration",
+                "techniques": [
+                    "Obtain Capabilities (malware/exploits)",
+                    "Develop Capabilities (custom malware)",
+                    "Obtain Vulnerability Information"
+                ],
+                "mechanism": "Before the attack, adversaries secure the necessary malicious tools. They might purchase or download malware and exploit kits from underground markets, develop their own custom malware, or gather information about vulnerabilities they plan to exploit. This ensures they have an arsenal ready for use."
+            },
+            {
+                "clusterName": "Establish Infrastructure & Accounts",
+                "iconDescription": "Cloud server and login icon",
+                "techniques": [
+                    "Compromise Infrastructure (e.g., hack a server to use)",
+                    "Establish Accounts (create cloud or email accounts)",
+                    "Register Domains for malicious use"
+                ],
+                "mechanism": "Attackers set up the technical infrastructure needed for their operation. This can include renting or compromising servers to host command-and-control or phishing pages, registering look-alike domains for malicious emails or websites, and even creating fake identities or accounts that will later be used to send emails or store stolen data."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "External threat intelligence detects attacker-controlled domains or servers being set up that resemble your organization’s services.",
+                "Reports of breached or sold credentials for your organization on underground forums (indicating attackers acquiring login details).",
+                "Unusual creation of new cloud service accounts or email addresses that could be used in phishing or other attack stages."
+            ],
+            "icon": "Hammer and wrench icon indicating preparation"
+        },
+        "analogy": {
+            "analogy": "Much like a burglar gathering tools, forging IDs, and stolen keys before a heist, attackers stockpile the necessary resources and prepare logistics before initiating their cyber attack."
+        }
+    },
+    {
+        "id": "TA0001",
+        "slug": "initial-access",
+        "title": "Initial Access",
+        "translation": "The adversary is trying to get into your network.",
+        "heroImage": "A thief picking a lock on a door illustration",
+        "why": {
+            "goal": [
+                "Gain a foothold inside the target’s environment by breaching the network or system perimeter.",
+                "Bypass external defenses (firewalls, user awareness) to execute code or establish a presence within the target system.",
+                "Open the door for subsequent actions (execution, persistence, etc.) by establishing that first point of entry."
+            ],
+            "severity": "High"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Phishing & Social Engineering",
+                "iconDescription": "Envelope with a fishing hook icon",
+                "techniques": [
+                    "Spearphishing Attachment",
+                    "Spearphishing Link",
+                    "Drive-by Compromise"
+                ],
+                "mechanism": "Attackers trick users into unwittingly letting them in. Commonly, they send deceptive emails with malicious attachments or links; if a user opens the attachment or clicks the link, malicious code executes giving the attacker access. In a drive-by compromise, just visiting a hacked website can silently install malware on the victim’s machine."
+            },
+            {
+                "clusterName": "Exploit Public-Facing Vulnerabilities",
+                "iconDescription": "Broken wall or code bug icon",
+                "techniques": [
+                    "Exploit Public-Facing Application",
+                    "Drive-by Compromise",
+                    "External Remote Services Exploit"
+                ],
+                "mechanism": "Adversaries directly attack vulnerable internet-exposed systems such as web servers, VPN gateways, or other services. By exploiting security flaws in these systems, they can gain unauthorized access. For example, a flaw in a web application might let them execute code on the server and thereby enter the network."
+            },
+            {
+                "clusterName": "Using Trusted Access",
+                "iconDescription": "Hand using a stolen keycard icon",
+                "techniques": [
+                    "Valid Accounts",
+                    "Supply Chain Compromise",
+                    "Removable Media (USB) Infection"
+                ],
+                "mechanism": "Instead of breaking in directly, attackers might use credentials or accesses that appear legitimate. They could log in with stolen usernames/passwords (perhaps obtained earlier) to blend in as normal users, or infiltrate via a partner organization (supply chain) that already has connections to the target. Even dropping malware-infected USB drives hoping someone plugs them in is another trick to get that initial access."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Email security gateways flagging or blocking phishing emails with malicious attachments or links targeting employees.",
+                "Intrusion detection systems alerting on exploit attempts against public-facing servers or unusual login attempts from new locations.",
+                "Unusual authentication activity, such as successful logins using valid accounts from unfamiliar devices or IP addresses (potential use of stolen credentials)."
+            ],
+            "icon": "Open door or broken lock icon indicating an entry point"
+        },
+        "analogy": {
+            "analogy": "This is like a burglar picking the lock or finding an open window to slip into a house — it's the initial break-in that opens up all the other possibilities for mischief inside."
+        }
+    },
+    {
+        "id": "TA0002",
+        "slug": "execution",
+        "title": "Execution",
+        "translation": "The adversary is trying to run malicious code.",
+        "heroImage": "A burglar starting a device or tool inside a building illustration",
+        "why": {
+            "goal": [
+                "Execute malicious code on a victim system to carry out the attacker’s objectives (such as deploying malware or opening backdoors).",
+                "Establish a running foothold (like a malicious process or script) that enables the adversary to begin controlling the system or network.",
+                "Utilize the compromised system’s capabilities to further the attack, be it for credential theft, system control, or pivoting deeper into the environment."
+            ],
+            "severity": "High"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "User-Triggered and Scripting Execution",
+                "iconDescription": "Terminal window or script icon",
+                "techniques": [
+                    "User Execution (malicious file or macro)",
+                    "Command and Scripting Interpreter (PowerShell, CMD)",
+                    "Office Macros Execution"
+                ],
+                "mechanism": "The attacker’s code runs on the system, either because a user inadvertently launched it (opened a tainted document or ran an .exe) or the attacker used a script or command interpreter. For example, a malicious Word macro might spawn PowerShell, or the attacker might directly run commands via a remote shell to execute their payload."
+            },
+            {
+                "clusterName": "Scheduled or Automatic Execution",
+                "iconDescription": "Clock triggering a process icon",
+                "techniques": [
+                    "Scheduled Task/Job",
+                    "Service Execution",
+                    "Boot or Logon Autostart Execution"
+                ],
+                "mechanism": "Attackers may set their code to run automatically via the system’s own scheduling or startup mechanisms. For instance, they could create a scheduled task or Windows service that launches their malware at a specific time or on system boot. This ensures their malicious code executes (and often re-executes) without needing further manual triggers."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Endpoint monitoring logs showing an unusual process launch (e.g., a document program like Word spawning a command shell or scripting engine).",
+                "Alerts from anti-malware or EDR tools about scripts or binaries running from uncommon locations (like temp directories or user profiles).",
+                "System logs indicating execution of programs at unexpected times or outside of normal user activity (possibly due to a scheduled malicious task)."
+            ],
+            "icon": "Play button or lightning bolt icon indicating code execution"
+        },
+        "analogy": {
+            "analogy": "If the initial access is a thief getting inside the building, execution is like the thief turning on a machine or using tools inside — for example, starting to drill open a safe. It’s the moment they activate something malicious on the inside."
+        }
+    },
+    {
+        "id": "TA0003",
+        "slug": "persistence",
+        "title": "Persistence",
+        "translation": "The adversary is trying to maintain their foothold.",
+        "heroImage": "A burglar wedging a door open to return later illustration",
+        "why": {
+            "goal": [
+                "Ensure continued access to the compromised system or network, even if the initial compromise is discovered or the system reboots.",
+                "Install mechanisms to automatically re-establish the foothold without requiring the same initial access steps again.",
+                "Avoid losing progress; even if some malicious processes are stopped or credentials changed, persistence techniques allow the attacker to regain control."
+            ],
+            "severity": "Medium"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Startup Autostarts",
+                "iconDescription": "Power-on or autorun icon",
+                "techniques": [
+                    "Registry Run Keys / Startup Folder",
+                    "Scheduled Task/Job (persistent)",
+                    "Bootkit"
+                ],
+                "mechanism": "Attackers often make their malicious code launch automatically when a system starts or a user logs in. They might add entries in the registry or startup folders, schedule jobs that relaunch malware regularly, or even install low-level bootkits. These ensure that even after reboots or logouts, their code will run again to maintain access."
+            },
+            {
+                "clusterName": "Account & Credential Persistence",
+                "iconDescription": "User account with key icon",
+                "techniques": [
+                    "Create or Hijack Accounts",
+                    "Valid Accounts (continued use of stolen creds)",
+                    "Cloud Account Access"
+                ],
+                "mechanism": "The adversary may create new user or service accounts, or maintain access using stolen credentials. For instance, they might add a secret admin user, or keep using an employee’s password that wasn’t reset. By having legitimate (or legit-looking) accounts, they can persist in the environment even if malware is removed, as they can simply log back in."
+            },
+            {
+                "clusterName": "Malicious Services & Implants",
+                "iconDescription": "Hidden implant malware icon",
+                "techniques": [
+                    "Service Installation (malicious service)",
+                    "Web Shell",
+                    "Browser Extension (malicious plugin)"
+                ],
+                "mechanism": "Attackers install their own software or scripts in places that will run persistently. This could be a malicious service that continually runs in the background, a web shell planted on a server (allowing re-entry via a web interface), or even a malicious browser extension in a user’s profile. These implants act as backdoors that remain available over time."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "System integrity monitors flag new or unusual autorun entries (like registry run keys or startup folder files) being created.",
+                "IT notices unknown user accounts or group membership changes in directories (indicating an attacker-created account for persistence).",
+                "Unusual services or tasks set to launch on boot, or web directories containing files that could be backdoor web shells, detected during routine audits."
+            ],
+            "icon": "Padlock or anchor icon symbolizing persistence"
+        },
+        "analogy": {
+            "analogy": "Think of a burglar who, after breaking in, hides a spare key under the doormat or leaves a basement window unlocked. Even if you notice the break-in later and lock the front door, they can use their hidden way in to come back."
+        }
+    },
+    {
+        "id": "TA0004",
+        "slug": "privilege-escalation",
+        "title": "Privilege Escalation",
+        "translation": "The adversary is trying to gain higher-level permissions.",
+        "heroImage": "A thief stealing a guard’s uniform to access restricted areas illustration",
+        "why": {
+            "goal": [
+                "Obtain elevated privileges (e.g., administrator or root access) that grant wider control over systems and data.",
+                "Break out of the limitations of a low-level account compromise, enabling the attacker to access sensitive information or critical systems.",
+                "Prepare for further actions (like disabling security tools or accessing other computers) that require higher permissions."
+            ],
+            "severity": "High"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Exploiting System Vulnerabilities",
+                "iconDescription": "Up arrow with a bug icon",
+                "techniques": [
+                    "Exploitation for Privilege Escalation",
+                    "Bypass User Account Control (UAC)",
+                    "Valid Accounts (Admin Credentials)"
+                ],
+                "mechanism": "Attackers may take advantage of bugs or design flaws to jump to a higher level of access. For instance, they might exploit a kernel vulnerability or an application bug to execute code as an administrator or SYSTEM. Additionally, they might abuse mechanisms like User Account Control by bypassing its restrictions, allowing a standard user to run code with high privileges."
+            },
+            {
+                "clusterName": "Credential & Token Abuses",
+                "iconDescription": "Key and token icon",
+                "techniques": [
+                    "Credential Dumping (to find admin creds)",
+                    "Pass the Hash / Pass the Ticket",
+                    "Access Token Manipulation"
+                ],
+                "mechanism": "If attackers can get hold of powerful credentials, they can simply log in as a more privileged user. They might dump password hashes or grab authentication tokens from a system, then reuse those (like passing the hash or using stolen Kerberos tickets) to assume the identity of an admin. Manipulating access tokens can also let a malicious process impersonate a higher-privileged one."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Security logs showing attempts to modify system processes or files that are typically restricted (possible exploit activity).",
+                "Alerts for known exploit tools or techniques (e.g., a kernel exploit or UAC bypass script) running on a host.",
+                "Monitoring of account usage reveals a lower-privileged account suddenly performing admin-level actions or a normally unused admin account being accessed."
+            ],
+            "icon": "Crown or admin shield icon indicating high privilege"
+        },
+        "analogy": {
+            "analogy": "This is like a thief who started out as a janitor sneaking around, but then steals a master key or dons a security guard’s uniform. Suddenly, they can unlock more doors and access the vault, server room, or other high-security areas that were off-limits before."
+        }
+    },
+    {
+        "id": "TA0005",
+        "slug": "defense-evasion",
+        "title": "Defense Evasion",
+        "translation": "The adversary is trying to avoid being detected.",
+        "heroImage": "A burglar sneaking past security cameras illustration",
+        "why": {
+            "goal": [
+                "Operate without raising alarms, allowing the attack to continue undetected for as long as possible.",
+                "Bypass or disable security controls (like antivirus, firewalls, or logging) that could otherwise detect or stop the attacker’s activities.",
+                "Remove evidence of their presence or activities to make it harder for defenders to respond or investigate the breach."
+            ],
+            "severity": "Medium"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Camouflage and Obfuscation",
+                "iconDescription": "Chameleon or camouflage pattern icon",
+                "techniques": [
+                    "Obfuscated Files or Information",
+                    "Masquerading (rename files/processes)",
+                    "Encode/Encrypt Payloads"
+                ],
+                "mechanism": "Attackers hide the true nature of their code and actions. They may encode or encrypt their malware to prevent detection by signature-based tools, or disguise malicious files and processes to look legitimate (masquerading). This is like wearing camouflage – the malicious activity is present, but hard to recognize at first glance."
+            },
+            {
+                "clusterName": "Disabling or Bypassing Security Tools",
+                "iconDescription": "Broken shield icon",
+                "techniques": [
+                    "Disable Security Software",
+                    "Indicator Removal on Host (Clear Logs)",
+                    "Impair Defenses (Firewall/AV rules tampered)"
+                ],
+                "mechanism": "The adversary directly interferes with security measures. They might shut off antivirus programs, add firewall exceptions, or delete logs and other forensic evidence. By doing so, they blind the defense mechanisms and erase tracks that might give them away."
+            },
+            {
+                "clusterName": "Living off the Land",
+                "iconDescription": "Ghost using system tools icon",
+                "techniques": [
+                    "Signed Binary Proxy Execution (LOLBins)",
+                    "Regsvr32 / Rundll32 usage",
+                    "Memory Injection (fileless execution)"
+                ],
+                "mechanism": "Instead of bringing obvious hacker tools, attackers use the system’s own trusted programs for malicious purposes (often called LOLBins - Living Off the Land Binaries). For example, using PowerShell, or Windows utilities like regsvr32.exe or rundll32.exe to run their code. They may also inject malware into memory of legitimate processes. This way, their actions are harder to differentiate from normal operations, as they blend in with standard system activity."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Alerts that antivirus or endpoint security has been unexpectedly disabled or stopped on a host.",
+                "System logs that show clearing of event logs or removal of files in audit directories (potential evidence of log tampering).",
+                "Indicators like unusual usage of system tools (e.g., PowerShell or regsvr32 executing unexpected commands/scripts) which may suggest an attacker using built-in tools to avoid detection."
+            ],
+            "icon": "Eye with a slash icon representing evasion"
+        },
+        "analogy": {
+            "analogy": "Think of a thief cutting alarm wires, avoiding security cameras by staying in blind spots, and wiping fingerprints. The intruder is doing everything possible not to get caught in the act, allowing them to continue their burglary without police being alerted."
+        }
+    },
+    {
+        "id": "TA0006",
+        "slug": "credential-access",
+        "title": "Credential Access",
+        "translation": "The adversary is trying to steal account names and passwords.",
+        "heroImage": "A thief copying a key from a keyring illustration",
+        "why": {
+            "goal": [
+                "Obtain usernames, passwords, keys or other secrets that grant access to systems and data.",
+                "Elevate their access by using stolen credentials to impersonate legitimate users (possibly with higher privileges).",
+                "Move laterally or persist in the environment using valid credentials, which makes their activities harder to detect."
+            ],
+            "severity": "High"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Dumping & Stealing Credentials",
+                "iconDescription": "Open safe with keys icon",
+                "techniques": [
+                    "Credential Dumping (memory or registry)",
+                    "Keylogging / Input Capture",
+                    "Steal Browser-stored Passwords"
+                ],
+                "mechanism": "Attackers search for and extract stored credentials from compromised systems. They might dump password hashes from memory (like grabbing them from the LSASS process on Windows), read system files or registry entries where passwords are stored, log keystrokes as users type passwords, or extract saved login info from web browsers. These stolen credentials can then be cracked or used directly."
+            },
+            {
+                "clusterName": "Brute Force & Guessing",
+                "iconDescription": "Lock being hammered icon",
+                "techniques": [
+                    "Brute Force (password guessing)",
+                    "Password Spraying",
+                    "Credential Stuffing"
+                ],
+                "mechanism": "Adversaries may attempt to guess passwords. They could use brute-force techniques (trying many passwords rapidly, often using automated tools) for a single account, or password spraying (trying common passwords on many accounts to avoid lockouts). Credential stuffing involves using username/password combos obtained from other breaches to see if users reused them. All these methods aim to crack accounts by sheer trial and error."
+            },
+            {
+                "clusterName": "Phishing for Credentials",
+                "iconDescription": "Fishing hook catching a key icon",
+                "techniques": [
+                    "Phishing (Credential Harvesting)",
+                    "SIM Swap / MFA interception",
+                    "Tech Support Scam (ask for password)"
+                ],
+                "mechanism": "Sometimes attackers simply ask for the keys to the kingdom. Through cleverly crafted phishing emails or calls, they trick users into entering credentials on fake login pages or divulging them outright. They might also employ tactics like SIM swapping to intercept SMS-based 2FA codes or pose as IT support to coax employees into revealing their passwords."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Multiple failed login attempts in authentication logs for various accounts (could indicate password spraying or brute-force attempts).",
+                "Endpoint alerts for processes accessing memory of other processes (e.g., a user process reading LSASS memory, as credential dumping tools do).",
+                "Unusual login behavior such as accounts logging in at odd hours or from new devices, especially if preceded by failed logins, possibly pointing to compromised credentials."
+            ],
+            "icon": "Key or fingerprint icon indicating credentials"
+        },
+        "analogy": {
+            "analogy": "Imagine a thief trying to get copies of the keys to a building. They might pickpocket an employee’s keys (dump credentials from memory), try a bunch of common keys on the door (brute force passwords), or con someone into handing over their keys by pretending to be an authority (phishing for login credentials). Any way you slice it, the intruder is after the keys that unlock more doors."
+        }
+    },
+    {
+        "id": "TA0007",
+        "slug": "discovery",
+        "title": "Discovery",
+        "translation": "The adversary is trying to figure out your environment.",
+        "heroImage": "A burglar quietly searching rooms and checking maps illustration",
+        "why": {
+            "goal": [
+                "Understand the layout of the target environment—what systems, accounts, and software are present—to identify next targets or high-value assets.",
+                "Locate sensitive information or critical systems by enumerating where important data might reside or what security measures are in place.",
+                "Find weaknesses or opportunities (like unmonitored systems, weakly secured data stores, or unused accounts) to exploit as they progress through the network."
+            ],
+            "severity": "Medium"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Network & Host Scanning",
+                "iconDescription": "Network diagram with magnifying glass icon",
+                "techniques": [
+                    "Network Service Discovery (port scans)",
+                    "Ping Sweep / Host Discovery",
+                    "Remote System Scan"
+                ],
+                "mechanism": "Once inside, attackers will scan the network to see what other machines are out there and what services those machines are running. For example, they might ping a range of IP addresses to find active hosts, or probe for open ports (like 445 for SMB or 3389 for RDP) to identify accessible services. This is akin to checking all the doors in a building to see which ones are unlocked or lead somewhere interesting."
+            },
+            {
+                "clusterName": "System & Domain Enumeration",
+                "iconDescription": "Computer with info list icon",
+                "techniques": [
+                    "System Information Discovery (OS, hardware)",
+                    "Process Discovery (list running programs)",
+                    "File and Directory Discovery"
+                ],
+                "mechanism": "Adversaries look closely at each compromised system. They gather details like the operating system version, installed software, running processes, and file structure. By doing this, they might discover sensitive files or figure out if the system has security software running. It's a detailed search of the system’s 'inventory', which helps them plan what to do next on that machine."
+            },
+            {
+                "clusterName": "Account & Permission Enumeration",
+                "iconDescription": "ID badge or users icon",
+                "techniques": [
+                    "Account Discovery (list users/groups)",
+                    "Permission Groups Discovery",
+                    "Domain Trust Discovery"
+                ],
+                "mechanism": "Attackers also want to know who has access to what. They might list all user accounts and groups on a machine or within Active Directory to find privileged accounts. They could check what groups a compromised user is part of, or identify relationships between domains or systems (like trusting domains) that they can exploit. Essentially, they are learning the hierarchy and trust relationships to map paths to higher privileges or more targets."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Internal network monitoring detects a host scanning multiple other systems or ports (port scan behavior from an internal machine).",
+                "Endpoint logs show a series of system commands like whoami, net user, net group, ipconfig, or other discovery commands being executed in sequence by a user process.",
+                "Unusual queries to Active Directory or other directory services (such as a non-admin querying for all user accounts or group memberships) captured in logs."
+            ],
+            "icon": "Compass or map icon indicating exploration"
+        },
+        "analogy": {
+            "analogy": "This is like a burglar who’s already inside quietly exploring the building: checking each room, reading directories and nameplates on doors, and peeking into file cabinets to understand where valuable items are kept and how everything is laid out. They’re essentially taking inventory of what’s around them."
+        }
+    },
+    {
+        "id": "TA0008",
+        "slug": "lateral-movement",
+        "title": "Lateral Movement",
+        "translation": "The adversary is trying to move through your environment.",
+        "heroImage": "A thief sneaking from one room to another inside a building illustration",
+        "why": {
+            "goal": [
+                "Expand their foothold by accessing other systems or devices beyond the initially compromised machine.",
+                "Reach critical systems or data that were not directly accessible from the first compromised point, by moving through intermediate systems.",
+                "Increase the scope of the compromise, ensuring that if one system is discovered or cleaned, the adversary still has access elsewhere in the network."
+            ],
+            "severity": "High"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Using Remote Services & Admin Tools",
+                "iconDescription": "Remote connection screen icon",
+                "techniques": [
+                    "Remote Desktop Protocol (RDP)",
+                    "Windows Admin Shares (SMB)",
+                    "Windows Remote Management (WinRM)"
+                ],
+                "mechanism": "Attackers take advantage of legitimate administration channels to move to other computers. For example, they might use RDP to log into another machine using stolen credentials, or connect to C$ admin shares on a server via SMB to drop and execute files. By using these standard tools and protocols, they can often blend in with normal administrator activities."
+            },
+            {
+                "clusterName": "Credential Reuse & Pass-the-Hash/Ticket",
+                "iconDescription": "Key moving between computers icon",
+                "techniques": [
+                    "Pass the Hash",
+                    "Pass the Ticket (Kerberos reuse)",
+                    "Remote Service Exploitation"
+                ],
+                "mechanism": "Armed with credentials or authentication data from one system, adversaries reuse them to access another. For instance, if they grabbed an admin’s password hash from one machine, they can use that hash to authenticate to another system (pass-the-hash) without knowing the actual password. Similarly, stealing a Kerberos ticket can allow them to impersonate a user on other systems (pass-the-ticket). In some cases, they might also directly exploit a remote service vulnerability on another host to move laterally without credentials."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Logs showing a user account accessing multiple systems in a short timeframe or at odd times (especially an account using remote desktop or remote share connections unexpectedly).",
+                "Detection of tools like PsExec, WMI, or other remote execution methods being used between hosts (for example, an alert if a non-IT machine initiates WMI commands on other systems).",
+                "Alerts for authentication anomalies such as the use of hashed credentials or tickets from a machine that wouldn’t normally use them (e.g., a user workstation presenting a domain admin’s credentials)."
+            ],
+            "icon": "Footsteps or arrow branching icon representing movement"
+        },
+        "analogy": {
+            "analogy": "After sneaking into one office, a burglar might use the keys or keycards found there to enter neighboring offices or other floors. Lateral movement is the thief quietly moving through the building from room to room, collecting more keys as they go, so they can reach the CEO’s office or the vault in the basement."
+        }
+    },
+    {
+        "id": "TA0009",
+        "slug": "collection",
+        "title": "Collection",
+        "translation": "The adversary is trying to gather data of interest to their goal.",
+        "heroImage": "A burglar gathering documents and valuables into a bag illustration",
+        "why": {
+            "goal": [
+                "Accumulate the sensitive or valuable data that the attackers came for, such as intellectual property, personal data, credentials, or financial information.",
+                "Prepare the harvested data for exfiltration (e.g., organizing, compressing, or encrypting it) so it can be transmitted out of the target environment efficiently.",
+                "Ensure no important information is missed by systematically searching through systems and capturing anything that might be useful for their end goals."
+            ],
+            "severity": "Medium"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Local File Collection & Archiving",
+                "iconDescription": "Folder with files icon",
+                "techniques": [
+                    "File and Directory Discovery",
+                    "Data Staged (local staging)",
+                    "Archive Collected Data (compress files)"
+                ],
+                "mechanism": "Attackers search the compromised machines for files and data that match their interests—this could be documents, spreadsheets, database files, etc. They often gather all found data into one place on the system (a staging area) and compress or encrypt it into archives. This not only organizes the haul but also makes it easier and more discreet to move the data out later."
+            },
+            {
+                "clusterName": "Keylogging & Screen Capture",
+                "iconDescription": "Keyboard and camera icon",
+                "techniques": [
+                    "Input Capture (Keylogging)",
+                    "Screen Capture",
+                    "Email Collection"
+                ],
+                "mechanism": "Beyond files, attackers may capture data by recording user activity. Keyloggers record everything a user types (which can reveal passwords, messages, or other sensitive info), and screen capture tools take snapshots of the user’s display (useful if sensitive data is shown on screen but not saved to disk). They might also directly pull emails or messages from mailboxes, gathering communications content that could contain valuable info."
+            },
+            {
+                "clusterName": "Network & Cloud Data Gathering",
+                "iconDescription": "Cloud download icon",
+                "techniques": [
+                    "Network Share Collection",
+                    "Database Dump",
+                    "Cloud Storage Data Capture"
+                ],
+                "mechanism": "If the target has shared drives, databases, or cloud storage, adversaries will target these as well. They might access network file shares to collect files from file servers, dump entire databases to get large data sets (like customer records), or use access tokens/credentials to grab data from cloud services. This broadens their collection beyond just the initially infected system to anywhere the target stores important data."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Host-based DLP (Data Loss Prevention) or file monitoring tools flagging large numbers of files being accessed or copied in a short time by an unusual process.",
+                "Unusual usage of archiving utilities (e.g., zip, rar) or scripting of file compression on a system not typically doing so, possibly preparing data for exfiltration.",
+                "Detection of keylogger or screenshot tools running on endpoints, or suspicious access to email mailboxes by processes not normally associated with such activity."
+            ],
+            "icon": "Open file cabinet or bag icon indicating data collection"
+        },
+        "analogy": {
+            "analogy": "Picture the thief rifling through filing cabinets, cracking safes, and emptying drawers. They gather all the cash, jewelry, and documents they can find, and stuff them into a bag. In a cyber context, the attacker is collecting every piece of data that might be valuable, packaging it up neatly before attempting to leave with it."
+        }
+    },
+    {
+        "id": "TA0011",
+        "slug": "command-and-control",
+        "title": "Command and Control",
+        "translation": "The adversary is trying to communicate with compromised systems to control them.",
+        "heroImage": "A burglar using a walkie-talkie to communicate with an accomplice illustration",
+        "why": {
+            "goal": [
+                "Maintain communication with the compromised environment to issue instructions, update malware, or extract data in real time.",
+                "Establish a reliable channel to remotely control infected systems, often through firewalls and network defenses without easily being noticed.",
+                "Manage multiple compromised machines from a central point, coordinating the attack’s next steps (like moving laterally, collecting data, or executing payloads)."
+            ],
+            "severity": "High"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Web and DNS Channels",
+                "iconDescription": "Globe and DNS query icon",
+                "techniques": [
+                    "Application Layer Protocol (HTTP/HTTPS)",
+                    "DNS Tunneling",
+                    "ICMP/Other Protocol for C2"
+                ],
+                "mechanism": "Attackers often design their malware to communicate like a web browser or other common application. It might reach out over HTTP or HTTPS to a command server (so it looks like normal web traffic), or even use DNS queries and responses to carry instructions (DNS tunneling). By using these typical protocols, the C2 traffic blends in with everyday network noise."
+            },
+            {
+                "clusterName": "Encrypted & Covert Channels",
+                "iconDescription": "Lock on network node icon",
+                "techniques": [
+                    "Encrypted Channel",
+                    "Non-Standard Port",
+                    "Custom C2 Protocol"
+                ],
+                "mechanism": "To evade detection, communications are often encrypted or hidden. An adversary might use an encrypted tunnel (so defenders can’t read the traffic) or send data over unusual ports that aren’t closely watched. Some malware uses completely custom protocols that don’t match any known pattern. These tactics ensure that even if the traffic is seen, it’s hard to decipher or flag as malicious."
+            },
+            {
+                "clusterName": "Abusing Legitimate Services",
+                "iconDescription": "Cloud service icon with arrow",
+                "techniques": [
+                    "Third-Party Service C2 (e.g., Slack, Dropbox)",
+                    "Email C2",
+                    "Social Media C2"
+                ],
+                "mechanism": "Instead of using dedicated malware servers, attackers sometimes use common platforms to issue commands or receive data. The malware could be configured to use a popular service’s API (like posting to a hidden Slack channel, or using a Google Drive account) to get instructions. Because these services are commonly whitelisted and their traffic seems normal, the C2 can hide in plain sight via channels that security teams inherently trust."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Network traffic monitoring sees periodic connections from an internal host to an external IP or domain at regular intervals (potential beaconing behavior).",
+                "Alerts for communications to known malicious domains or IPs, or anomalous traffic patterns like a client device suddenly communicating on an unusual port/protocol not typically used in your environment.",
+                "Inspection of network packets reveals data that appears to be exfiltrated or commands embedded in seemingly normal traffic (e.g., large encoded DNS query payloads or strange HTTP request patterns)."
+            ],
+            "icon": "Radio tower or signal icon indicating communications"
+        },
+        "analogy": {
+            "analogy": "This is like the thief inside using a walkie-talkie or burner phone to talk to an accomplice outside. They might be asking for instructions, giving status updates, or coordinating the escape – all through a channel that they hope the security guards won’t overhear. In cyber terms, the infected computer is constantly talking to the attacker’s server, making sure the attacker can direct its actions remotely."
+        }
+    },
+    {
+        "id": "TA0010",
+        "slug": "exfiltration",
+        "title": "Exfiltration",
+        "translation": "The adversary is trying to steal data.",
+        "heroImage": "A burglar stealthily exiting with a bag of stolen goods illustration",
+        "why": {
+            "goal": [
+                "Remove collected sensitive data from the victim’s environment to a location the attacker controls, completing the theft.",
+                "Do so in a way that avoids detection, such as disguising the data or trickling it out slowly to not trigger alarms.",
+                "Ultimately monetize or leverage the stolen information (whether for financial gain, espionage, or disruption) after successfully getting it out."
+            ],
+            "severity": "Critical"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Direct Network Exfiltration",
+                "iconDescription": "Up-arrow data transfer icon",
+                "techniques": [
+                    "Exfiltration Over C2 Channel",
+                    "Exfiltration Over Web Service (HTTP/S)",
+                    "Unencrypted Data Transfer"
+                ],
+                "mechanism": "The attacker sends the data out directly through network channels. Often they’ll reuse the existing command-and-control channel (for example, sending files over the same HTTP connection the malware uses for commands) or upload data to a web server or cloud service. In simple cases, they might even send it in clear text or basic formats if they think no one is watching. The key is the data is leaving the network over an internet connection toward the attacker."
+            },
+            {
+                "clusterName": "Stealthy Exfiltration Techniques",
+                "iconDescription": "Ninja icon or hidden transfer icon",
+                "techniques": [
+                    "Exfiltration Over Alternative Protocol (DNS, ICMP)",
+                    "Automated Exfiltration (Scheduled or Throttled)",
+                    "Data Encoding & Encryption"
+                ],
+                "mechanism": "To avoid being caught, adversaries might hide the data exfiltration. They could encode or encrypt the files so that even if intercepted, the content isn’t obvious. They might use less-monitored channels like DNS queries or ping (ICMP) packets to sneak data out in tiny pieces. Additionally, they might only send data out during certain hours or at a slow rate to blend with normal traffic patterns and not set off volume-based alerts."
+            },
+            {
+                "clusterName": "Physical or Out-of-Band Exfiltration",
+                "iconDescription": "USB drive or delivery truck icon",
+                "techniques": [
+                    "Exfiltration via Removable Media",
+                    "Transfer to Cloud Account",
+                    "Manual Extraction"
+                ],
+                "mechanism": "In some cases, the data might not leave via the network at all during the attack. An insider might load data onto a USB drive and walk out with it, or the malware might sync data to a cloud storage account which the attacker can later access (almost like cloud stealing). There are even scenarios where attackers set up a wireless hotspot or device to pick up data. These methods use alternate routes to get data out, especially if network monitoring is tight."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Sudden spikes in outgoing network traffic volume, especially to destinations that are unusual for the network (e.g., large data transfers to an external IP or new cloud storage service).",
+                "DLP (Data Loss Prevention) alerts or firewall logs showing files or sensitive content leaving the network, or being uploaded to external sites.",
+                "Observations of unusual archive files or large file collections on user systems that are then moved or transmitted (could indicate data was staged and then exfiltrated)."
+            ],
+            "icon": "Open door with arrow outward icon"
+        },
+        "analogy": {
+            "analogy": "Picture the thief sneaking out of the building carrying a bag stuffed with stolen documents and valuables. Exfiltration is exactly that moment in cyber terms — the data is the loot, and the attacker is getting it out of the victim’s environment to take it home. They might opt for the back door or a quiet side exit (a stealthy channel) to avoid being noticed as they leave."
+        }
+    },
+    {
+        "id": "TA0040",
+        "slug": "impact",
+        "title": "Impact",
+        "translation": "The adversary is trying to manipulate, interrupt, or destroy your systems and data.",
+        "heroImage": "A vandal smashing a computer or equipment illustration",
+        "why": {
+            "goal": [
+                "Achieve the attacker’s endgame by inflicting damage, disruption, or otherwise leveraging the access gained for maximum effect (financial, political, destructive, etc.).",
+                "Coerce the victim (as in the case of ransomware, where encryption of data is used to demand payment) or simply degrade the victim’s capabilities (as in data destruction or service outages).",
+                "Cover their tracks or complicate recovery by destroying evidence, disabling systems, or causing chaos in the environment as they exit."
+            ],
+            "severity": "Critical"
+        },
+        "techniqueClusters": [
+            {
+                "clusterName": "Data Destruction & Corruption",
+                "iconDescription": "Flame or bomb icon",
+                "techniques": [
+                    "Data Destruction (Wipe Files/Drives)",
+                    "Data Corruption (Alter or Poison Data)",
+                    "Defacement (Change Websites/Content)"
+                ],
+                "mechanism": "In some attacks, the goal is to obliterate or tarnish data. Attackers might wipe entire systems or specific files, rendering them useless, or they might subtly alter data to undermine its integrity (imagine changing records or planting false information). They may even deface public-facing assets, like websites, making them display propaganda or messages. These actions can disrupt operations and damage an organization’s reliability or reputation."
+            },
+            {
+                "clusterName": "Encryption & Ransom",
+                "iconDescription": "Padlock on data icon",
+                "techniques": [
+                    "Data Encrypted for Impact (Ransomware)",
+                    "Disk Content Wipe (Partial)",
+                    "Lockout (Account or Device Lockout)"
+                ],
+                "mechanism": "A common impactful attack is to encrypt the victim’s data (through ransomware) so it’s inaccessible until a ransom is paid — effectively holding it hostage. Attackers might not stop at files; they could encrypt entire disks or crucial network shares. They may also lock users out of systems by changing passwords or other means. These tactics deny the victim access to their own resources, causing operational paralysis and often financial extortion."
+            },
+            {
+                "clusterName": "Service Disruption & Sabotage",
+                "iconDescription": "Broken gear or power outage icon",
+                "techniques": [
+                    "Service Stop or Disable",
+                    "Network Traffic Flood (DoS)",
+                    "Resource Hijacking (e.g., crypto mining)"
+                ],
+                "mechanism": "An adversary might aim to knock services offline or degrade their performance. They could stop critical processes or services on systems to cause outages, launch denial-of-service attacks to overwhelm network or application capacity, or even hijack computing resources for their own use (such as running cryptocurrency mining software, which saps system power). These actions result in systems being unavailable or performing poorly, directly impacting the victim’s operations."
+            }
+        ],
+        "detection": {
+            "breadcrumbs": [
+                "Multiple systems simultaneously experiencing failures or going offline unexpectedly (could indicate a widespread destructive action or mass ransomware encryption).",
+                "File integrity monitors alerting to large-scale file modifications or deletions, or discovery of ransom note files in various directories signaling encryption.",
+                "Administrative logs showing legitimate services being stopped or disabled in bulk, or network monitoring detecting an internal host launching a DoS flood against your services."
+            ],
+            "icon": "Alarm or explosion icon indicating damage"
+        },
+        "analogy": {
+            "analogy": "This is the endgame of the heist or attack. Imagine the burglar not just stealing items, but also smashing furniture, spray-painting the walls, or setting the place on fire on their way out. In cyber terms, the attacker might destroy data, encrypt it for ransom, or knock systems offline—whatever causes maximum impact to the victim."
+        }
+    }
+]
